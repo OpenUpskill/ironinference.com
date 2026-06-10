@@ -1,0 +1,509 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IronInference - AI Inference Control Plane</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#070b14;
+    color:#ffffff;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    padding:100px 0 80px;
+    text-align:center;
+    background:
+    radial-gradient(circle at top,#152238 0%,#070b14 70%);
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #284268;
+    border-radius:30px;
+    color:#6fb4ff;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+header h1{
+    font-size:64px;
+    margin-bottom:20px;
+    letter-spacing:-2px;
+}
+
+header p{
+    max-width:850px;
+    margin:auto;
+    color:#a7b4c7;
+    font-size:20px;
+}
+
+.hero-buttons{
+    margin-top:40px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    margin:8px;
+    font-size:15px;
+}
+
+.btn-primary{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid #334155;
+    color:white;
+}
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#9fb0c5;
+    max-width:850px;
+    margin:auto auto 60px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:24px;
+}
+
+.card{
+    background:#0f172a;
+    border:1px solid #1e293b;
+    border-radius:16px;
+    padding:28px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#3b82f6;
+}
+
+.card h3{
+    color:#6fb4ff;
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.card p{
+    color:#b3c0d1;
+    font-size:15px;
+}
+
+.architecture{
+    background:#0b1220;
+    border:1px solid #1e293b;
+    border-radius:20px;
+    padding:40px;
+}
+
+.arch-layer{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.arch-layer h3{
+    color:#60a5fa;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.node-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.node{
+    padding:14px 18px;
+    border-radius:12px;
+    border:1px solid #334155;
+    background:#111827;
+    font-size:14px;
+    color:#d1d5db;
+}
+
+.flow{
+    text-align:center;
+    color:#60a5fa;
+    font-size:22px;
+    margin:25px 0;
+}
+
+.highlight{
+    color:#60a5fa;
+    font-weight:bold;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    margin-top:50px;
+}
+
+.stat-box{
+    background:#0f172a;
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+    border:1px solid #1e293b;
+}
+
+.stat-box h2{
+    font-size:42px;
+    color:#60a5fa;
+}
+
+.stat-box p{
+    color:#9fb0c5;
+    margin-top:10px;
+}
+
+.contact{
+    background:#0b1220;
+    border-radius:20px;
+    padding:50px;
+    border:1px solid #1e293b;
+}
+
+.contact p{
+    margin:10px 0;
+    color:#cbd5e1;
+}
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    color:#64748b;
+    border-top:1px solid #1e293b;
+}
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:42px;
+    }
+
+    .section-title{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+
+        <div class="badge">
+            DISTRIBUTED AI CONTROL PLANE
+        </div>
+
+        <h1>IronInference</h1>
+
+        <p>
+            IronInference is an enterprise-grade AI inference control plane
+            designed to orchestrate, optimize, and manage inference workloads
+            across hosted and self-hosted large language models with
+            production-grade reliability, deterministic routing, and cost-aware intelligence.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#architecture" class="btn btn-primary">View Architecture</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+
+    </div>
+</header>
+
+<section>
+    <div class="container">
+
+        <h2 class="section-title">The Industry Problem</h2>
+
+        <p class="section-subtitle">
+            AI adoption is accelerating rapidly, but inference infrastructure remains fragmented,
+            expensive, unreliable, and operationally difficult to scale in production environments.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>LLM Fragmentation</h3>
+                <p>
+                    Enterprises are integrating multiple AI providers independently
+                    without a unified routing and orchestration layer.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Cost Explosion</h3>
+                <p>
+                    Inference workloads are becoming increasingly expensive due to
+                    inefficient model selection and poor workload distribution.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Reliability Challenges</h3>
+                <p>
+                    Existing AI stacks lack deterministic failover,
+                    retry orchestration, and resilience under production traffic.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Vendor Lock-In</h3>
+                <p>
+                    Organizations become tightly coupled to a single provider,
+                    limiting optimization, portability, and infrastructure flexibility.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <h2 class="section-title">Why IronInference</h2>
+
+        <p class="section-subtitle">
+            IronInference introduces a distributed control plane approach to AI inference,
+            enabling enterprises to build resilient, intelligent, and economically optimized AI infrastructure.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Deterministic Routing</h3>
+                <p>
+                    Policy-driven inference routing based on latency,
+                    cost, workload priority, and infrastructure availability.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Retry Graph Engine</h3>
+                <p>
+                    Advanced failure recovery and multi-provider failover orchestration
+                    designed for production-grade resilience.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Hybrid AI Infrastructure</h3>
+                <p>
+                    Unified orchestration across OpenAI, Anthropic, Gemini,
+                    vLLM, TGI, Ollama, and future inference stacks.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Enterprise Observability</h3>
+                <p>
+                    Deep metrics, tracing, provider visibility,
+                    token analytics, and workload intelligence.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="architecture">
+    <div class="container">
+
+        <h2 class="section-title">Architecture Overview</h2>
+
+        <div class="architecture">
+
+            <div class="arch-layer">
+                <h3>CONTROL PLANE</h3>
+
+                <div class="node-row">
+                    <div class="node">API Gateway</div>
+                    <div class="node">Workflow Engine</div>
+                    <div class="node">Retry Graph Engine</div>
+                    <div class="node">Policy Engine</div>
+                    <div class="node">Cost Router</div>
+                    <div class="node">State Store</div>
+                    <div class="node">Observability</div>
+                </div>
+            </div>
+
+            <div class="flow">↓ Intelligent Routing Layer ↓</div>
+
+            <div class="arch-layer">
+                <h3>MODEL LAYER</h3>
+
+                <div class="node-row">
+                    <div class="node">OpenAI</div>
+                    <div class="node">Anthropic</div>
+                    <div class="node">Gemini</div>
+                    <div class="node">vLLM</div>
+                    <div class="node">TGI</div>
+                    <div class="node">Ollama</div>
+                </div>
+            </div>
+
+            <div class="flow">↓ Distributed Execution ↓</div>
+
+            <div class="arch-layer">
+                <h3>NODE AGENT / INFRA LAYER</h3>
+
+                <div class="node-row">
+                    <div class="node">GPU Scheduling</div>
+                    <div class="node">KV Cache</div>
+                    <div class="node">Token Routing</div>
+                    <div class="node">Execution Runtime</div>
+                    <div class="node">Distributed Compute</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <h2 class="section-title">Mission & Vision</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>
+                    To provide a reliable, intelligent, and open control plane
+                    for enterprise AI inference infrastructure.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>
+                    To become the orchestration layer powering the next generation
+                    of distributed AI systems and autonomous compute infrastructure.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <h2 class="section-title">Commercial Advantage</h2>
+
+        <p class="section-subtitle">
+            IronInference helps enterprises reduce operational complexity,
+            optimize inference spending, and improve AI system reliability.
+        </p>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h2>40%</h2>
+                <p>Potential reduction in inference cost through intelligent routing</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>99.9%</h2>
+                <p>High availability architecture through multi-provider failover</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>Multi-Cloud</h2>
+                <p>Unified orchestration across hosted and self-hosted environments</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>Enterprise Ready</h2>
+                <p>Observability, policy enforcement, and workload governance</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact">
+
+            <p><span class="highlight">IronInference</span></p>
+
+            <p>Ground Floor</p>
+
+            <p>37, iNet2Cloud Apartment</p>
+
+            <p>Owners Court Layout East</p>
+
+            <p>Bangalore - 560037</p>
+
+            <p>Phone: +91 8088705901</p>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    IronInference © 2026 • Distributed AI Inference Control Plane
+</footer>
+
+</body>
+</html>
+```
