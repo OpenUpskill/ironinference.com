@@ -1,509 +1,616 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IronInference - AI Inference Control Plane</title>
+
+<title>IronInference — Reliability Infrastructure for AI Systems</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:#070b14;
-    color:#ffffff;
+body {
+    margin:0;
+    font-family: Inter, Arial, sans-serif;
+    background:#050816;
+    color:#e5e7eb;
+}
+
+.container {
+    max-width:1200px;
+    margin:auto;
+    padding:60px 30px;
+}
+
+.hero {
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1 {
+    font-size:58px;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p {
+    font-size:22px;
+    color:#9ca3af;
+    max-width:800px;
+    margin:auto;
     line-height:1.6;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
 
-header{
-    padding:100px 0 80px;
-    text-align:center;
-    background:
-    radial-gradient(circle at top,#152238 0%,#070b14 70%);
-}
-
-.badge{
+.button {
     display:inline-block;
-    padding:8px 14px;
-    border:1px solid #284268;
-    border-radius:30px;
-    color:#6fb4ff;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-header h1{
-    font-size:64px;
-    margin-bottom:20px;
-    letter-spacing:-2px;
-}
-
-header p{
-    max-width:850px;
-    margin:auto;
-    color:#a7b4c7;
-    font-size:20px;
-}
-
-.hero-buttons{
-    margin-top:40px;
-}
-
-.btn{
-    display:inline-block;
-    padding:14px 24px;
+    margin-top:35px;
+    padding:15px 30px;
     border-radius:10px;
-    text-decoration:none;
-    margin:8px;
-    font-size:15px;
-}
-
-.btn-primary{
     background:#2563eb;
     color:white;
+    text-decoration:none;
 }
 
-.btn-secondary{
-    border:1px solid #334155;
-    color:white;
-}
 
-section{
-    padding:80px 0;
-}
-
-.section-title{
+.section-title {
     text-align:center;
-    font-size:40px;
-    margin-bottom:20px;
+    font-size:36px;
+    margin-bottom:50px;
 }
 
-.section-subtitle{
-    text-align:center;
-    color:#9fb0c5;
-    max-width:850px;
-    margin:auto auto 60px;
-}
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:24px;
-}
+.architecture {
 
-.card{
-    background:#0f172a;
-    border:1px solid #1e293b;
-    border-radius:16px;
-    padding:28px;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#3b82f6;
-}
-
-.card h3{
-    color:#6fb4ff;
-    margin-bottom:15px;
-    font-size:20px;
-}
-
-.card p{
-    color:#b3c0d1;
-    font-size:15px;
-}
-
-.architecture{
-    background:#0b1220;
-    border:1px solid #1e293b;
-    border-radius:20px;
-    padding:40px;
-}
-
-.arch-layer{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.arch-layer h3{
-    color:#60a5fa;
-    margin-bottom:20px;
-    font-size:24px;
-}
-
-.node-row{
     display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
-
-.node{
-    padding:14px 18px;
-    border-radius:12px;
-    border:1px solid #334155;
-    background:#111827;
-    font-size:14px;
-    color:#d1d5db;
-}
-
-.flow{
-    text-align:center;
-    color:#60a5fa;
-    font-size:22px;
-    margin:25px 0;
-}
-
-.highlight{
-    color:#60a5fa;
-    font-weight:bold;
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    flex-direction:column;
+    align-items:center;
     gap:20px;
-    margin-top:50px;
+
 }
 
-.stat-box{
-    background:#0f172a;
-    padding:30px;
-    border-radius:16px;
+.box {
+
+    width:80%;
+    padding:25px;
+    border-radius:15px;
+    background:#111827;
+    border:1px solid #374151;
     text-align:center;
-    border:1px solid #1e293b;
+
 }
 
-.stat-box h2{
-    font-size:42px;
+
+.arrow {
+    font-size:30px;
     color:#60a5fa;
 }
 
-.stat-box p{
-    color:#9fb0c5;
-    margin-top:10px;
+
+.grid {
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+
 }
 
-.contact{
-    background:#0b1220;
-    border-radius:20px;
-    padding:50px;
-    border:1px solid #1e293b;
+
+.card {
+
+background:#111827;
+padding:30px;
+border-radius:18px;
+border:1px solid #374151;
+
 }
 
-.contact p{
-    margin:10px 0;
-    color:#cbd5e1;
+
+.card h3 {
+
+color:#60a5fa;
+
 }
 
-footer{
-    padding:40px 0;
-    text-align:center;
-    color:#64748b;
-    border-top:1px solid #1e293b;
+
+.card p {
+
+color:#9ca3af;
+line-height:1.6;
+
 }
 
-@media(max-width:768px){
 
-    header h1{
-        font-size:42px;
-    }
+.highlight {
 
-    .section-title{
-        font-size:32px;
-    }
+margin-top:50px;
+padding:40px;
+background:#0f172a;
+border-radius:20px;
+border:1px solid #334155;
+
+}
+
+
+.contact {
+
+margin-top:80px;
+padding:50px;
+background:#111827;
+border-radius:20px;
+border:1px solid #374151;
+text-align:center;
+
+}
+
+
+.contact h2 {
+
+color:#60a5fa;
+font-size:36px;
+
+}
+
+
+.contact p {
+
+font-size:20px;
+line-height:1.8;
+color:#d1d5db;
+
+}
+
+
+.footer {
+
+text-align:center;
+padding:50px;
+color:#6b7280;
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<header>
-    <div class="container">
 
-        <div class="badge">
-            DISTRIBUTED AI CONTROL PLANE
-        </div>
+<div class="container">
 
-        <h1>IronInference</h1>
 
-        <p>
-            IronInference is an enterprise-grade AI inference control plane
-            designed to orchestrate, optimize, and manage inference workloads
-            across hosted and self-hosted large language models with
-            production-grade reliability, deterministic routing, and cost-aware intelligence.
-        </p>
+<section class="hero">
 
-        <div class="hero-buttons">
-            <a href="#architecture" class="btn btn-primary">View Architecture</a>
-            <a href="#contact" class="btn btn-secondary">Contact Us</a>
-        </div>
 
-    </div>
-</header>
+<h1>IronInference</h1>
+
+
+<p>
+Reliability infrastructure for autonomous AI systems.
+From model calls to distributed agents, IronInference provides the control plane that makes AI execution predictable, observable, and resilient.
+</p>
+
+
+<a class="button">
+Build Reliable AI Systems
+</a>
+
+
+</section>
+
+
 
 <section>
-    <div class="container">
 
-        <h2 class="section-title">The Industry Problem</h2>
 
-        <p class="section-subtitle">
-            AI adoption is accelerating rapidly, but inference infrastructure remains fragmented,
-            expensive, unreliable, and operationally difficult to scale in production environments.
-        </p>
+<h2 class="section-title">
+Why AI Systems Fail in Production
+</h2>
 
-        <div class="grid">
 
-            <div class="card">
-                <h3>LLM Fragmentation</h3>
-                <p>
-                    Enterprises are integrating multiple AI providers independently
-                    without a unified routing and orchestration layer.
-                </p>
-            </div>
+<div class="grid">
 
-            <div class="card">
-                <h3>Cost Explosion</h3>
-                <p>
-                    Inference workloads are becoming increasingly expensive due to
-                    inefficient model selection and poor workload distribution.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Reliability Challenges</h3>
-                <p>
-                    Existing AI stacks lack deterministic failover,
-                    retry orchestration, and resilience under production traffic.
-                </p>
-            </div>
+<div class="card">
+<h3>Models are probabilistic</h3>
+<p>
+Same input can produce different outputs.
+Retries can change plans.
+Failures are difficult to reproduce.
+</p>
+</div>
 
-            <div class="card">
-                <h3>Vendor Lock-In</h3>
-                <p>
-                    Organizations become tightly coupled to a single provider,
-                    limiting optimization, portability, and infrastructure flexibility.
-                </p>
-            </div>
 
-        </div>
+<div class="card">
+<h3>Agents are distributed systems</h3>
+<p>
+Multiple agents, tools, memory, and workflows create state conflicts and execution failures.
+</p>
+</div>
 
-    </div>
+
+<div class="card">
+<h3>Production needs guarantees</h3>
+<p>
+Companies need recovery, governance, replay, cost control, and predictable execution.
+</p>
+</div>
+
+
+</div>
+
+
 </section>
 
-<section>
-    <div class="container">
 
-        <h2 class="section-title">Why IronInference</h2>
 
-        <p class="section-subtitle">
-            IronInference introduces a distributed control plane approach to AI inference,
-            enabling enterprises to build resilient, intelligent, and economically optimized AI infrastructure.
-        </p>
 
-        <div class="grid">
+<section style="margin-top:100px">
 
-            <div class="card">
-                <h3>Deterministic Routing</h3>
-                <p>
-                    Policy-driven inference routing based on latency,
-                    cost, workload priority, and infrastructure availability.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Retry Graph Engine</h3>
-                <p>
-                    Advanced failure recovery and multi-provider failover orchestration
-                    designed for production-grade resilience.
-                </p>
-            </div>
+<h2 class="section-title">
+The AI Reliability Stack
+</h2>
 
-            <div class="card">
-                <h3>Hybrid AI Infrastructure</h3>
-                <p>
-                    Unified orchestration across OpenAI, Anthropic, Gemini,
-                    vLLM, TGI, Ollama, and future inference stacks.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Enterprise Observability</h3>
-                <p>
-                    Deep metrics, tracing, provider visibility,
-                    token analytics, and workload intelligence.
-                </p>
-            </div>
+<div class="architecture">
 
-        </div>
 
-    </div>
+<div class="box">
+Application / Agent Frameworks
+<br>
+LangGraph • CrewAI • AutoGen • Custom Agents
+</div>
+
+
+<div class="arrow">↓</div>
+
+
+<div class="box">
+IronInference Control Plane
+<br>
+Routing • Policies • Reliability • Execution Management
+</div>
+
+
+<div class="arrow">↓</div>
+
+
+<div class="box">
+Inference Providers
+<br>
+OpenAI • Anthropic • Ollama • Self Hosted Models
+</div>
+
+
+<div class="arrow">↓</div>
+
+
+<div class="box">
+Node Agent (Optional)
+<br>
+GPU Scheduling • KV Cache Optimization • Runtime Telemetry
+</div>
+
+
+</div>
+
+
 </section>
 
-<section id="architecture">
-    <div class="container">
 
-        <h2 class="section-title">Architecture Overview</h2>
 
-        <div class="architecture">
 
-            <div class="arch-layer">
-                <h3>CONTROL PLANE</h3>
 
-                <div class="node-row">
-                    <div class="node">API Gateway</div>
-                    <div class="node">Workflow Engine</div>
-                    <div class="node">Retry Graph Engine</div>
-                    <div class="node">Policy Engine</div>
-                    <div class="node">Cost Router</div>
-                    <div class="node">State Store</div>
-                    <div class="node">Observability</div>
-                </div>
-            </div>
+<section style="margin-top:100px">
 
-            <div class="flow">↓ Intelligent Routing Layer ↓</div>
 
-            <div class="arch-layer">
-                <h3>MODEL LAYER</h3>
+<h2 class="section-title">
+Five Levels of AI Reliability
+</h2>
 
-                <div class="node-row">
-                    <div class="node">OpenAI</div>
-                    <div class="node">Anthropic</div>
-                    <div class="node">Gemini</div>
-                    <div class="node">vLLM</div>
-                    <div class="node">TGI</div>
-                    <div class="node">Ollama</div>
-                </div>
-            </div>
 
-            <div class="flow">↓ Distributed Execution ↓</div>
 
-            <div class="arch-layer">
-                <h3>NODE AGENT / INFRA LAYER</h3>
+<div class="grid">
 
-                <div class="node-row">
-                    <div class="node">GPU Scheduling</div>
-                    <div class="node">KV Cache</div>
-                    <div class="node">Token Routing</div>
-                    <div class="node">Execution Runtime</div>
-                    <div class="node">Distributed Compute</div>
-                </div>
-            </div>
 
-        </div>
+<div class="card">
 
-    </div>
+<h3>
+1. Transport Reliability
+</h3>
+
+<p>
+Ensure requests reliably reach models.
+
+<br><br>
+
+• API compatibility
+<br>
+• Streaming reliability
+<br>
+• Request tracking
+<br>
+• Timeouts
+<br>
+• Retries
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+2. Inference Reliability
+</h3>
+
+<p>
+
+Make model execution dependable.
+
+<br><br>
+
+• Provider failover
+<br>
+• Model routing
+<br>
+• Latency optimization
+<br>
+• Cost-aware execution
+<br>
+• Quality monitoring
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+3. Execution Reliability
+</h3>
+
+<p>
+
+Make workflows recoverable.
+
+<br><br>
+
+• Checkpoints
+<br>
+• Durable execution
+<br>
+• State recovery
+<br>
+• Retry semantics
+<br>
+• Replay
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+4. Distributed Agent Reliability
+</h3>
+
+<p>
+
+Coordinate multiple autonomous workers.
+
+<br><br>
+
+• Agent communication
+<br>
+• State consistency
+<br>
+• Conflict resolution
+<br>
+• Tool reliability
+<br>
+• Workflow validation
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+5. Autonomous Runtime Reliability
+</h3>
+
+<p>
+
+Enable safe autonomous systems.
+
+<br><br>
+
+• Execution guarantees
+<br>
+• Policy enforcement
+<br>
+• Semantic replay
+<br>
+• Resource governance
+<br>
+• Agent lifecycle management
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
 </section>
 
-<section>
-    <div class="container">
 
-        <h2 class="section-title">Mission & Vision</h2>
 
-        <div class="grid">
 
-            <div class="card">
-                <h3>Our Mission</h3>
-                <p>
-                    To provide a reliable, intelligent, and open control plane
-                    for enterprise AI inference infrastructure.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Our Vision</h3>
-                <p>
-                    To become the orchestration layer powering the next generation
-                    of distributed AI systems and autonomous compute infrastructure.
-                </p>
-            </div>
+<section class="highlight">
 
-        </div>
 
-    </div>
+<h2>
+IronInference Control Plane
+</h2>
+
+
+<p>
+
+A reliability layer between AI applications and infrastructure.
+
+</p>
+
+
+<ul>
+
+<li>Model routing and failover</li>
+
+<li>Execution policies</li>
+
+<li>Workflow reliability</li>
+
+<li>Observability</li>
+
+<li>Agent runtime governance</li>
+
+<li>Cost and resource controls</li>
+
+</ul>
+
+
+
 </section>
 
-<section>
-    <div class="container">
 
-        <h2 class="section-title">Commercial Advantage</h2>
 
-        <p class="section-subtitle">
-            IronInference helps enterprises reduce operational complexity,
-            optimize inference spending, and improve AI system reliability.
-        </p>
 
-        <div class="stats">
 
-            <div class="stat-box">
-                <h2>40%</h2>
-                <p>Potential reduction in inference cost through intelligent routing</p>
-            </div>
 
-            <div class="stat-box">
-                <h2>99.9%</h2>
-                <p>High availability architecture through multi-provider failover</p>
-            </div>
+<section class="highlight">
 
-            <div class="stat-box">
-                <h2>Multi-Cloud</h2>
-                <p>Unified orchestration across hosted and self-hosted environments</p>
-            </div>
 
-            <div class="stat-box">
-                <h2>Enterprise Ready</h2>
-                <p>Observability, policy enforcement, and workload governance</p>
-            </div>
+<h2>
+Optional Node Agent
+</h2>
 
-        </div>
 
-    </div>
+<p>
+
+For organizations running their own AI infrastructure.
+
+The Node Agent runs close to compute and provides:
+
+</p>
+
+
+<ul>
+
+<li>GPU telemetry</li>
+
+<li>Inference optimization</li>
+
+<li>KV cache awareness</li>
+
+<li>Batching optimization</li>
+
+<li>Runtime scheduling signals</li>
+
+</ul>
+
+
 </section>
 
-<section id="contact">
-    <div class="container">
 
-        <h2 class="section-title">Contact</h2>
 
-        <div class="contact">
 
-            <p><span class="highlight">IronInference</span></p>
 
-            <p>Ground Floor</p>
 
-            <p>37, iNet2Cloud Apartment</p>
+<section style="margin-top:100px;text-align:center">
 
-            <p>Owners Court Layout East</p>
 
-            <p>Bangalore - 560037</p>
+<h2>
+From AI Applications to Reliable Autonomous Systems
+</h2>
 
-            <p>Phone: +91 8088705901</p>
 
-        </div>
+<p style="color:#9ca3af;font-size:20px">
 
-    </div>
+IronInference provides the missing reliability layer between intelligent models and dependable production systems.
+
+</p>
+
+
 </section>
 
-<footer>
-    IronInference © 2026 • Distributed AI Inference Control Plane
+
+
+<section class="contact">
+
+<h2>
+Contact IronInference
+</h2>
+
+
+<p>
+IronInference
+<br><br>
+
+Ground Floor
+<br>
+37, iNet2Cloud Apartment
+<br>
+Owners Court Layout East
+<br>
+Bangalore - 560037
+<br><br>
+
+Phone: +91 8088705901
+
+</p>
+
+
+</section>
+
+
+
+</div>
+
+
+<footer class="footer">
+
+© 2026 IronInference
+
 </footer>
 
+
+
 </body>
+
 </html>
-```
